@@ -166,7 +166,7 @@ if __name__ == '__main__':
     st.sidebar.title("Image Enhancement")
     st.sidebar.subheader("Select the method")
     col1, col2 = st.columns(2)
-    method = st.sidebar.selectbox("Select the method", ("Histogram Equalization", "Contrast Limited Adaptive Histogram Equalization", "CHE", "QDHE"))
+    method = st.sidebar.selectbox("Select the method", ("Histogram Equalization", "Contrast Limited Adaptive Histogram Equalization", "Cumulative Histogram Equalization", "Quadratic Dynamic Histogram Equalization"))
     
     if method == "Histogram Equalization":
         image = st.sidebar.file_uploader("Upload the image", type=['jpg', 'png', 'jpeg'])
@@ -222,7 +222,7 @@ if __name__ == '__main__':
                 st.write("PSNR = ", PSNR(MSE(img, result)))
                 st.write("SD = ", SD(result))
     
-    elif method == "CHE":
+    elif method == "Cumulative Histogram Equalization":
         image = st.sidebar.file_uploader("Upload the image", type=['jpg', 'png', 'jpeg'])
         if image is not None:
             img = plt.imread(image)
@@ -249,7 +249,7 @@ if __name__ == '__main__':
                 st.write("PSNR = ", PSNR(MSE(img, result)))
                 st.write("SD = ", SD(result))
     
-    elif method == "QDHE":
+    elif method == "Quadratic Dynamic Histogram Equalization":
         image = st.sidebar.file_uploader("Upload the image", type=['jpg', 'png', 'jpeg'])
         if image is not None:
             img = plt.imread(image)
