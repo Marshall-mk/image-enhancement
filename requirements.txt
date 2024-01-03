@@ -3,5 +3,5 @@ numpy
 pandas
 pydeck
 streamlit
-opencv-python
+opencv-python-headless
 matplotlib
