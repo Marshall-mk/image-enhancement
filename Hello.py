@@ -163,8 +163,8 @@ def Generate_histogram(img):
 
 if __name__ == '__main__':
     st.title("Image Enhancement Based on Histogtram Algorithms")
-    st.sidebar.title("Image Enhancement")
-    st.sidebar.subheader("Select the method")
+    # st.sidebar.title("Image Enhancement")
+    # st.sidebar.subheader("Select the method")
     col1, col2 = st.columns(2)
     method = st.sidebar.selectbox("Select the method", ("Histogram Equalization", "Contrast Limited Adaptive Histogram Equalization", "Cumulative Histogram Equalization", "Quadratic Dynamic Histogram Equalization"))
     
