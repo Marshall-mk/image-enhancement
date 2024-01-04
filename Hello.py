@@ -35,8 +35,8 @@ def QDHE(source): # implementation according to: Chen Hee Ooi and Nor Ashidi Mat
     m0 = np.min(np.argwhere(hist!=0)) # minimum of range
     m4 = np.max(np.argwhere(hist!=0)) # maximum of range
     m2 = argmedian(hist) # median of range
-    m1 = m0+argmedian(hist[np.bitwise_and(hist>=m0, hist<m2)]) # median of min/med
-    m3 = m2+argmedian(hist[np.bitwise_and(hist>m2, hist<=m4)]) # median of med/max
+    m1 = m0+argmedian(hist[m0:m2]) # median of min/med
+    m3 = m2+argmedian(hist[m2:m4+1]) # median of med/max
 
     #2 clipping
     T = np.mean(hist) # clipping threshold
