@@ -240,8 +240,8 @@ if __name__ == '__main__':
             if image.name.endswith(".png"):
                 img = png_to_jpg(image)
                 img = np.array(img)
-                else:
-            img = plt.imread(image)
+            else:
+                img = plt.imread(image)
             col1.image(img, caption='Uploaded Image', use_column_width=True)
             st.write("")
             if st.button('Process'):
