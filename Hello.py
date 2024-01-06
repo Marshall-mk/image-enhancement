@@ -160,6 +160,10 @@ def Generate_histogram(img):
     hist, bins = np.histogram(img.flatten(), 256, [0, 256])
     return hist, bins
 
+def png_to_jpg(image):
+    im = Image.open(image)
+    rgb_im = im.convert('RGB')
+    return rgb_im
 
 if __name__ == '__main__':
     st.title("Image Enhancement Based on Histogtram Algorithms")
@@ -171,7 +175,11 @@ if __name__ == '__main__':
     if method == "Histogram Equalization":
         image = st.sidebar.file_uploader("Upload the image", type=['jpg', 'png', 'jpeg'])
         if image is not None:
-            img = plt.imread(image)
+            if image.name.endswith(".png"):
+                img = png_to_jpg(image)
+                img = np.array(img)
+            else:
+                img = plt.imread(image)
             col1.image(img, caption='Uploaded Image', use_column_width=True)
             st.write("")
             if st.button('Process'):
@@ -198,7 +206,11 @@ if __name__ == '__main__':
     elif method == "Contrast Limited Adaptive Histogram Equalization":
         image = st.sidebar.file_uploader("Upload the image", type=['jpg', 'png', 'jpeg'])
         if image is not None:
-            img = plt.imread(image)
+            if image.name.endswith(".png"):
+                img = png_to_jpg(image)
+                img = np.array(img)
+            else:
+                img = plt.imread(image)
             col1.image(img, caption='Uploaded Image', use_column_width=True)
             st.write("")
             if st.button('Process'):
@@ -225,6 +237,10 @@ if __name__ == '__main__':
     elif method == "Cumulative Histogram Equalization":
         image = st.sidebar.file_uploader("Upload the image", type=['jpg', 'png', 'jpeg'])
         if image is not None:
+            if image.name.endswith(".png"):
+                img = png_to_jpg(image)
+                img = np.array(img)
+                else:
             img = plt.imread(image)
             col1.image(img, caption='Uploaded Image', use_column_width=True)
             st.write("")
@@ -252,7 +268,11 @@ if __name__ == '__main__':
     elif method == "Quadratic Dynamic Histogram Equalization":
         image = st.sidebar.file_uploader("Upload the image", type=['jpg', 'png', 'jpeg'])
         if image is not None:
-            img = plt.imread(image)
+            if image.name.endswith(".png"):
+                img = png_to_jpg(image)
+                img = np.array(img)
+            else:
+                img = plt.imread(image)
             col1.image(img, caption='Uploaded Image', use_column_width=True)
             st.write("")
             if st.button('Process'):
