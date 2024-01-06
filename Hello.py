@@ -3,7 +3,7 @@ import cv2
 import math
 import matplotlib.pyplot as plt
 import streamlit as st
-
+from PIL import Image
 def CHE(source): # implementation according to: Krutsch, Robert, and David Tenorio (2011) "Histogram equalization." Freescale Semiconductor, Document Number AN4318, Application Note.
     hist = cv2.calcHist([source], [0], None, [256], [0, 256]) # get histogram, for some reason is 2d even though there are only singular values in the second dimension wtf
     hist = np.ndarray.flatten(hist)
